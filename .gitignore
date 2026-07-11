@@ -1,2 +1,5 @@
+#SQL Server database files
+DatabaseFiles/
 *.mdf
 *.ldf
+*.ndf
