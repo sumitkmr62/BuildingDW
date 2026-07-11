@@ -5,6 +5,7 @@ SELECT
 	DB_NAME(database_id) AS DatabaseName,
 	name AS LogicalFileName,
 	physical_name
-FROM SYS.master_files WHERE database_id = 13
+FROM SYS.master_files WHERE database_id = 13;
+GO
 
-ALTER DATABASE BuildingDW_Data;
+
