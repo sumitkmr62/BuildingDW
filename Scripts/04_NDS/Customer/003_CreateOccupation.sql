@@ -38,3 +38,32 @@ Notes
 This script creates the table only.
 Foreign Keys, Indexes and Verification are created separately.
 ******************************************************************************/
+
+USE BuildingDW;
+GO
+
+DROP TABLE IF EXISTS NDS.Occupation;
+GO
+
+CREATE TABLE NDS.Occupation
+(
+	--PRIMARY KEY
+	OccupationKey INT IDENTITY(1,1) NOT NULL,
+
+	--BUSINESS COLUMN
+	Occupation VARCHAR(50) NOT NULL,
+
+	--AUDIT COLUMNS
+	CreateTimeStamp DATETIME2(0) NOT NULL
+		CONSTRAINT DF_Occupation_CreateTimeStamp
+		DEFAULT (SYSDATETIME()),
+	UpdateTimeStamp DATETIME2(0) NOT NULL
+		CONSTRAINT DF_Occupation_UpdateTimeStamp
+		DEFAULT (SYSDATETIME())
+	CONSTRAINT PK_Occupation
+	PRIMARY KEY CLUSTERED (OccupationKey)
+);
+GO
+
+PRINT 'Successfully created table NDS.Occupation'
+GO
